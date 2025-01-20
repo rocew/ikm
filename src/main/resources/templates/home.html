@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Магазин гаджетов "У Илюхи"</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+<main>
+
+    <!-- Шапка сайта -->
+    <header class="bg-dark text-white py-4">
+        <div class="container">
+            <h1 class="text-center">Магазин гаджетов "У Илюхи"</h1>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <div class="container marketing">
+
+        <div class="row">
+            <div class="col-lg-4" th:each="category : ${categories}">
+                <img th:src="${category.imagePath}" width="200" height="200" th:alt="${category.name}">
+                <h2 class="fw-normal" th:text="${category.name}">Название категории</h2>
+                <p th:text="${category.description}">Описание категории</p>
+                <p><a th:href="@{/category/{name}(name=${category.name})}" class="btn btn-secondary">Подробнее »</a></p>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <a href="/products" class="btn btn-lg btn-primary">Просмотреть все товары</a>
+        </div>
+        <div class="text-center mt-3">
+            <a href="/categories" class="btn btn-lg btn-primary">Просмотреть все категории</a>
+        </div>
+        <div class="text-center mt-3">
+            <a href="/customers" class="btn btn-lg btn-primary">Просмотреть всех клиентов</a>
+        </div>
+        <div class="text-center mt-3">
+            <a href="/suppliers" class="btn btn-lg btn-primary">Просмотреть всех поставщиков</a>
+        </div>
+        <div class="text-center mt-3">
+            <a href="/orders" class="btn btn-lg btn-primary">Просмотреть все заказы</a>
+        </div>
+
+        <!-- Разделитель -->
+        <hr class="featurette-divider">
+
+        <!-- Блок с описанием магазина -->
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading fw-normal lh-1">Магазин "У Илюхи" <span class="text-body-secondary">— лучший выбор техники.</span></h2>
+                <p class="lead">Мы предлагаем широкий ассортимент гаджетов и аксессуаров по доступным ценам. У нас вы найдете все, что нужно для комфортной жизни в цифровом мире.</p>
+            </div>
+            <div class="col-md-5">
+                <img src="/images/mag%20(1).jpg" alt="Магазин гаджетов">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- Блок с преимуществами -->
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading fw-normal lh-1">Почему выбирают нас? <span class="text-body-secondary">— качество и надежность.</span></h2>
+                <p class="lead">Мы работаем только с проверенными поставщиками, гарантируем качество товаров и предоставляем официальную гарантию.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img src="/images/gar.jpg" alt="Гарантия качества">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- Блок с контактами -->
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading fw-normal lh-1">Контакты <span class="text-body-secondary">— мы всегда на связи.</span></h2>
+                <p class="lead">Адрес: ул. Пушкина, 52<br>Телефон: +7 (952) 812-22-22<br>Email: info@uilyuhi.ru</p>
+            </div>
+            <div class="col-md-5">
+                <img src="/images/contacts.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" alt="Контакты">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+    </div><!-- /.container -->
+
+    <!-- Футер -->
+    <footer class="container">
+        <p class="float-end"><a href="#">Вернуться наверх</a></p>
+        <p>© 2025 Магазин "У Илюхи"</p>
+    </footer>
+</main>
+
+<!-- Подключение Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
